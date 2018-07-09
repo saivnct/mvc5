@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Giangbb.Models;
 
 namespace Giangbb.Dtos
 {
@@ -22,5 +23,6 @@ namespace Giangbb.Dtos
         public int NumberInStock { get; set; }        
 
         public byte GenreId { get; set; }
+        public Genre Genre { get; set; }
     }
 }

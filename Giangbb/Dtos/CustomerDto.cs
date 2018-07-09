@@ -30,5 +30,8 @@ namespace Giangbb.Dtos
         public bool IsSubscribedToNewLetters { get; set; }        
 
         public byte MembershipTypeId { get; set; }
+
+        public MembershipTypeDto MembershipType { get; set; }
+
     }
 }
