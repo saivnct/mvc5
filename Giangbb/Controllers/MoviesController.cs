@@ -176,7 +176,7 @@ namespace Giangbb.Controllers
                 return View("New", newMovieViewModel);
             }
 
-            Movie movie = new Movie
+            Movie movie = new Movie()
             {                
                 Name = movieForm.Name,
                 ReleaseDate = DateUtils.GetDateFromString(movieForm.ReleaseDate, DateUtils.FORMAT_BIRTHDAY),

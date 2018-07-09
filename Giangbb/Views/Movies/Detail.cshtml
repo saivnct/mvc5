@@ -20,25 +20,24 @@
                     {
                         @Html.ValidationSummary() //show all error
 
-                        <div class="form-group" hidden>
-                            <label for="MovieForm_Name">Name</label>
-                            <input type="text" class="form-control" name="MovieForm.Id" id="MovieForm_Id" value="@Model.Movie.Id">
+                        <div class="form-group" hidden>                            
+                            <input type="text" class="form-control" name="Id" id="Id" value="@Model.Movie.Id">
                         </div>
 
                         <div class="form-group">
-                            <label for="MovieForm_Name">Name</label>
-                            <input type="text" class="form-control" name="MovieForm.Name" id="MovieForm_Name" value="@Model.Movie.Name">
+                            <label for="Name">Name</label>
+                            <input type="text" class="form-control" name="Name" id="Name" value="@Model.Movie.Name">
                         </div>
 
 
                         <div class="form-group">
-                            <label for="MovieForm_ReleaseDate">Release Date</label>
-                            <input type="text" class="form-control datepicker" name="MovieForm.ReleaseDate" id="MovieForm_ReleaseDate" value="@DateUtils.GetDateStringByFormat(Model.Movie.ReleaseDate,DateUtils.FORMAT_BIRTHDAY)" />
+                            <label for="ReleaseDate">Release Date</label>
+                            <input type="text" class="form-control datepicker" name="ReleaseDate" id="ReleaseDate" value="@DateUtils.GetDateStringByFormat(Model.Movie.ReleaseDate,DateUtils.FORMAT_BIRTHDAY)" />
                         </div>
 
 
 
-                        <select class="selectpicker" name="MovieForm.GenreId" id="MovieForm_GenreId" data-size="4" data-style="select-with-transition" title="Select Genre">
+                        <select class="selectpicker" name="GenreId" id="GenreId" data-size="4" data-style="select-with-transition" title="Select Genre">
                             <option disabled>Select Genre</option>
                             @foreach (var genre in Model.Genres)
                             {
@@ -48,8 +47,8 @@
 
 
                         <div class="form-group">
-                            <label for="MovieForm_NumberInStock">Number In Stock</label>
-                            <input type="text" class="form-control" name="MovieForm.NumberInStock" id="MovieForm_NumberInStock" value="@Model.Movie.NumberInStock">
+                            <label for="NumberInStock">Number In Stock</label>
+                            <input type="text" class="form-control" name="NumberInStock" id="NumberInStock" value="@Model.Movie.NumberInStock">
                         </div>
 
 

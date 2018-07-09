@@ -18,32 +18,32 @@
 
     $('#movieForm').validate({
         rules: {
-            "MovieForm.Name": {
+            "Name": {
                 required: true,
                 minlength: 5
             },
-            "MovieForm.ReleaseDate": {
+            "ReleaseDate": {
                 required: true
             },
-            "MovieForm.GenreId": {
+            "GenreId": {
                 required: true
             },
-            "MovieForm.NumberInStock": {
+            "NumberInStock": {
                 required: true
             }
         },
         messages: {
-            "MovieForm.Name": {
+            "Name": {
                 required: "Name must not empty!",
                 minlength: "length must be more than 5"
             },
-            "MovieForm.ReleaseDate": {
+            "ReleaseDate": {
                 required: "Release Date must not empty!",
             },
-            "MovieForm.GenreId": {
+            "GenreId": {
                 required: "GenreId must not empty!",
             },
-            "MovieForm.NumberInStock": {
+            "NumberInStock": {
                 required: "NumberInStock must not empty!"
             }
         },
