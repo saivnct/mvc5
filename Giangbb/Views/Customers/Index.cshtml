@@ -1,0 +1,97 @@
+﻿@using Giangbb.Models
+@using Giangbb.Utils
+
+@{
+    ViewBag.Title = "Customers";
+    ViewBag.MenuTitle = "Customers";
+    Layout = "~/Views/Shared/_Layout_MaterialDashboard.cshtml";
+}
+
+@{
+    var customers = (List<Customer>)ViewBag.Customers;
+}
+
+
+@section AddToHead{
+    @Styles.Render("~/MaterialDashboardDemo/css")
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-icon" data-background-color="purple">
+                    <i class="material-icons">assignment</i>
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">DataTables.net</h4>
+                    <div class="toolbar">
+                        <!--        Here you can write extra buttons/actions for the toolbar              -->
+                        <a href="/customers/new2" class="btn btn-fill btn-rose">Create New</a>
+                    </div>
+                    <div class="material-datatables">
+                        <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>BirthDay</th>
+                                    <th>Address</th>
+                                    <th>Membership Type</th>
+                                    <th>Discount Rate</th>
+                                    <th class="disabled-sorting text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>BirthDay</th>
+                                    <th>Address</th>
+                                    <th>Membership Type</th>
+                                    <th>Discount Rate</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach (var customer in customers)
+                                {
+                                    <tr>
+                                        <td>@customer.Name</td>
+                                        <td>
+                                            @if (customer.Birthday.HasValue)
+                                            {
+                                                @DateUtils.GetDateStringByFormat(customer.Birthday.Value, DateUtils.FORMAT_BIRTHDAY)
+                                            }
+                                        </td>
+                                        <td>@customer.Address</td>
+                                        <td>@customer.MembershipType.Name</td>
+                                        <td>@customer.MembershipType.DiscoutRate%</td>
+                                        <td class="text-right">
+                                            <a href="/customers/edit/@customer.Id" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">border_color</i></a>
+                                            <a href="/customers/detail/@customer.Id" class="btn btn-simple btn-info btn-icon like"><i class="material-icons">dvr</i></a>
+                                            <a href="/customers/del/@customer.Id" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end content-->
+            </div>
+            <!--  end card  -->
+        </div>
+        <!-- end col-md-12 -->
+    </div>
+</div>
+
+
+
+
+
+@section AddToBotom{
+    @Scripts.Render("~/MaterialDashboardDemo/js")
+
+    @*force browser reload js file by include contentHash*@
+    <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/View/customers/index/js", true)"></script>    
+}

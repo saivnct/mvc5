@@ -1,0 +1,40 @@
+﻿
+@model Giangbb.ViewModels.RandomMovieViewModel
+@*on the top of file, we need to use directive to specify the type of the model for this view*@
+
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var className = Model.Customers.Count > 5 ? "popular" : null;
+}
+
+@*Every view has Model property which gives us access to the model we passed to it from controller *@
+<h2 class="@className">@Model.Movie.Name</h2>   
+
+
+@if (Model.Customers.Count == 0)
+{
+    <p>No one has rented this movie before</p>
+}
+else
+{
+    <table class=“table table‐bordered table‐hover”>
+        <thead>
+        <th>
+            Customer
+        </th>
+        </thead>
+        <tbody>
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>@customer.Name</td>
+            </tr>                                             
+        }
+        </tbody>
+    </table>
+}
+

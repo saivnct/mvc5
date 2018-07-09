@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <ProjectGuid>{A3346711-5F44-4CD2-9F98-31E8BD6CA294}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Giangbb</RootNamespace>
+    <AssemblyName>Giangbb</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AbstractController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="FormModels\CustomerForm.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807010933011_InitialModel.cs" />
+    <Compile Include="Migrations\201807010933011_InitialModel.Designer.cs">
+      <DependentUpon>201807010933011_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807010948051_AddIsSubscribedToCusTomer.cs" />
+    <Compile Include="Migrations\201807010948051_AddIsSubscribedToCusTomer.Designer.cs">
+      <DependentUpon>201807010948051_AddIsSubscribedToCusTomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807010954586_AddMemBershipType.cs" />
+    <Compile Include="Migrations\201807010954586_AddMemBershipType.Designer.cs">
+      <DependentUpon>201807010954586_AddMemBershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807011000311_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201807011000311_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201807011000311_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807011010405_ApplyAnotationToCustomerName.cs" />
+    <Compile Include="Migrations\201807011010405_ApplyAnotationToCustomerName.Designer.cs">
+      <DependentUpon>201807011010405_ApplyAnotationToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807020408201_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\201807020408201_AddNameToMembershipType.Designer.cs">
+      <DependentUpon>201807020408201_AddNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807020410092_PopulateMembershipTypeName.cs" />
+    <Compile Include="Migrations\201807020410092_PopulateMembershipTypeName.Designer.cs">
+      <DependentUpon>201807020410092_PopulateMembershipTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807020426504_AddBirthdayToCustomers.cs" />
+    <Compile Include="Migrations\201807020426504_AddBirthdayToCustomers.Designer.cs">
+      <DependentUpon>201807020426504_AddBirthdayToCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807020428495_SetMembershipTypeNameRequired.cs" />
+    <Compile Include="Migrations\201807020428495_SetMembershipTypeNameRequired.Designer.cs">
+      <DependentUpon>201807020428495_SetMembershipTypeNameRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807020604383_AddMovies.cs" />
+    <Compile Include="Migrations\201807020604383_AddMovies.Designer.cs">
+      <DependentUpon>201807020604383_AddMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807020606102_PopulateGenre.cs" />
+    <Compile Include="Migrations\201807020606102_PopulateGenre.Designer.cs">
+      <DependentUpon>201807020606102_PopulateGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807020748394_RemoveCustomerAge.cs" />
+    <Compile Include="Migrations\201807020748394_RemoveCustomerAge.Designer.cs">
+      <DependentUpon>201807020748394_RemoveCustomerAge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Validations\CustomValidationMin18YearsIfAMember.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Movie.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utils\DateUtils.cs" />
+    <Compile Include="Utils\ObjUtils.cs" />
+    <Compile Include="ViewModels\NewCustomerViewModel.cs" />
+    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fonts\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\material-icons.css" />
+    <Content Include="Content\Images\apple-icon.png" />
+    <Content Include="Content\Images\bg-pricing.jpeg" />
+    <Content Include="Content\Images\card-1.jpeg" />
+    <Content Include="Content\Images\card-2.jpeg" />
+    <Content Include="Content\Images\card-3.jpeg" />
+    <Content Include="Content\Images\default-avatar.png" />
+    <Content Include="Content\Images\faces\avatar.jpg" />
+    <Content Include="Content\Images\faces\card-profile1-square.jpg" />
+    <Content Include="Content\Images\faces\card-profile2-square.jpg" />
+    <Content Include="Content\Images\faces\marc.jpg" />
+    <Content Include="Content\Images\favicon.png" />
+    <Content Include="Content\Images\flags\AD.png" />
+    <Content Include="Content\Images\flags\AE.png" />
+    <Content Include="Content\Images\flags\AG.png" />
+    <Content Include="Content\Images\flags\AM.png" />
+    <Content Include="Content\Images\flags\AR.png" />
+    <Content Include="Content\Images\flags\AT.png" />
+    <Content Include="Content\Images\flags\AU.png" />
+    <Content Include="Content\Images\flags\BE.png" />
+    <Content Include="Content\Images\flags\BF.png" />
+    <Content Include="Content\Images\flags\BG.png" />
+    <Content Include="Content\Images\flags\BO.png" />
+    <Content Include="Content\Images\flags\BR.png" />
+    <Content Include="Content\Images\flags\CA.png" />
+    <Content Include="Content\Images\flags\CD.png" />
+    <Content Include="Content\Images\flags\CG.png" />
+    <Content Include="Content\Images\flags\CH.png" />
+    <Content Include="Content\Images\flags\CL.png" />
+    <Content Include="Content\Images\flags\CM.png" />
+    <Content Include="Content\Images\flags\CN.png" />
+    <Content Include="Content\Images\flags\CO.png" />
+    <Content Include="Content\Images\flags\CZ.png" />
+    <Content Include="Content\Images\flags\DE.png" />
+    <Content Include="Content\Images\flags\DJ.png" />
+    <Content Include="Content\Images\flags\DK.png" />
+    <Content Include="Content\Images\flags\DZ.png" />
+    <Content Include="Content\Images\flags\EE.png" />
+    <Content Include="Content\Images\flags\EG.png" />
+    <Content Include="Content\Images\flags\ES.png" />
+    <Content Include="Content\Images\flags\FI.png" />
+    <Content Include="Content\Images\flags\FR.png" />
+    <Content Include="Content\Images\flags\GA.png" />
+    <Content Include="Content\Images\flags\GB.png" />
+    <Content Include="Content\Images\flags\GM.png" />
+    <Content Include="Content\Images\flags\GT.png" />
+    <Content Include="Content\Images\flags\HN.png" />
+    <Content Include="Content\Images\flags\HT.png" />
+    <Content Include="Content\Images\flags\HU.png" />
+    <Content Include="Content\Images\flags\ID.png" />
+    <Content Include="Content\Images\flags\IE.png" />
+    <Content Include="Content\Images\flags\IL.png" />
+    <Content Include="Content\Images\flags\IN.png" />
+    <Content Include="Content\Images\flags\IQ.png" />
+    <Content Include="Content\Images\flags\IR.png" />
+    <Content Include="Content\Images\flags\IT.png" />
+    <Content Include="Content\Images\flags\JM.png" />
+    <Content Include="Content\Images\flags\JO.png" />
+    <Content Include="Content\Images\flags\JP.png" />
+    <Content Include="Content\Images\flags\KG.png" />
+    <Content Include="Content\Images\flags\KN.png" />
+    <Content Include="Content\Images\flags\KP.png" />
+    <Content Include="Content\Images\flags\KR.png" />
+    <Content Include="Content\Images\flags\KW.png" />
+    <Content Include="Content\Images\flags\KZ.png" />
+    <Content Include="Content\Images\flags\LA.png" />
+    <Content Include="Content\Images\flags\LB.png" />
+    <Content Include="Content\Images\flags\LC.png" />
+    <Content Include="Content\Images\flags\LS.png" />
+    <Content Include="Content\Images\flags\LU.png" />
+    <Content Include="Content\Images\flags\LV.png" />
+    <Content Include="Content\Images\flags\MG.png" />
+    <Content Include="Content\Images\flags\MK.png" />
+    <Content Include="Content\Images\flags\ML.png" />
+    <Content Include="Content\Images\flags\MM.png" />
+    <Content Include="Content\Images\flags\MT.png" />
+    <Content Include="Content\Images\flags\MX.png" />
+    <Content Include="Content\Images\flags\NA.png" />
+    <Content Include="Content\Images\flags\NE.png" />
+    <Content Include="Content\Images\flags\NG.png" />
+    <Content Include="Content\Images\flags\NI.png" />
+    <Content Include="Content\Images\flags\NL.png" />
+    <Content Include="Content\Images\flags\NO.png" />
+    <Content Include="Content\Images\flags\OM.png" />
+    <Content Include="Content\Images\flags\PA.png" />
+    <Content Include="Content\Images\flags\PE.png" />
+    <Content Include="Content\Images\flags\PG.png" />
+    <Content Include="Content\Images\flags\PK.png" />
+    <Content Include="Content\Images\flags\PL.png" />
+    <Content Include="Content\Images\flags\PT.png" />
+    <Content Include="Content\Images\flags\PY.png" />
+    <Content Include="Content\Images\flags\QA.png" />
+    <Content Include="Content\Images\flags\RO.png" />
+    <Content Include="Content\Images\flags\RU.png" />
+    <Content Include="Content\Images\flags\RW.png" />
+    <Content Include="Content\Images\flags\SA.png" />
+    <Content Include="Content\Images\flags\SE.png" />
+    <Content Include="Content\Images\flags\SG.png" />
+    <Content Include="Content\Images\flags\SL.png" />
+    <Content Include="Content\Images\flags\SN.png" />
+    <Content Include="Content\Images\flags\SO.png" />
+    <Content Include="Content\Images\flags\SV.png" />
+    <Content Include="Content\Images\flags\TD.png" />
+    <Content Include="Content\Images\flags\TJ.png" />
+    <Content Include="Content\Images\flags\TL.png" />
+    <Content Include="Content\Images\flags\TR.png" />
+    <Content Include="Content\Images\flags\TZ.png" />
+    <Content Include="Content\Images\flags\UA.png" />
+    <Content Include="Content\Images\flags\US.png" />
+    <Content Include="Content\Images\flags\VE.png" />
+    <Content Include="Content\Images\flags\VN.png" />
+    <Content Include="Content\Images\flags\YE.png" />
+    <Content Include="Content\Images\header-doc.jpeg" />
+    <Content Include="Content\Images\image_placeholder.jpg" />
+    <Content Include="Content\Images\lock.jpeg" />
+    <Content Include="Content\Images\login.jpeg" />
+    <Content Include="Content\Images\mask.png" />
+    <Content Include="Content\Images\new_logo.png" />
+    <Content Include="Content\Images\placeholder.jpg" />
+    <Content Include="Content\Images\product1.jpg" />
+    <Content Include="Content\Images\product2.jpg" />
+    <Content Include="Content\Images\product3.jpg" />
+    <Content Include="Content\Images\register.jpeg" />
+    <Content Include="Content\Images\sidebar-1.jpg" />
+    <Content Include="Content\Images\sidebar-2.jpg" />
+    <Content Include="Content\Images\sidebar-3.jpg" />
+    <Content Include="Content\Images\sidebar-4.jpg" />
+    <Content Include="Content\material-dashboard\bootstrap.min.css" />
+    <Content Include="Content\material-dashboard\demo.css" />
+    <Content Include="Content\material-dashboard\material-dashboard.css" />
+    <Content Include="Content\views\common.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\material-dashboard\material-dashboard.css.map" />
+    <Content Include="Content\sass\material-dashboard.scss" />
+    <Content Include="Content\sass\material-dashboard\mixins\_chartist.scss" />
+    <Content Include="Content\sass\material-dashboard\mixins\_sidebar-color.scss" />
+    <Content Include="Content\sass\material-dashboard\mixins\_transparency.scss" />
+    <Content Include="Content\sass\material-dashboard\mixins\_vendor-prefixes.scss" />
+    <Content Include="Content\sass\material-dashboard\plugins\_animate.scss" />
+    <Content Include="Content\sass\material-dashboard\plugins\_chartist.scss" />
+    <Content Include="Content\sass\material-dashboard\plugins\_datatables.net.scss" />
+    <Content Include="Content\sass\material-dashboard\plugins\_fullcalendar.scss" />
+    <Content Include="Content\sass\material-dashboard\plugins\_jquery.jvectormap.scss" />
+    <Content Include="Content\sass\material-dashboard\plugins\_perfect-scrollbar.scss" />
+    <Content Include="Content\sass\material-dashboard\plugins\_plugin-datetime-picker.scss" />
+    <Content Include="Content\sass\material-dashboard\plugins\_plugin-nouislider.scss" />
+    <Content Include="Content\sass\material-dashboard\plugins\_select-bootstrap.scss" />
+    <Content Include="Content\sass\material-dashboard\plugins\_sweetalert2.scss" />
+    <Content Include="Content\sass\material-dashboard\plugins\_wizard-card.scss" />
+    <Content Include="Content\sass\material-dashboard\_alerts.scss" />
+    <Content Include="Content\sass\material-dashboard\_buttons.scss" />
+    <Content Include="Content\sass\material-dashboard\_cards.scss" />
+    <Content Include="Content\sass\material-dashboard\_checkboxes.scss" />
+    <Content Include="Content\sass\material-dashboard\_colors.scss" />
+    <Content Include="Content\sass\material-dashboard\_dialogs.scss" />
+    <Content Include="Content\sass\material-dashboard\_dropdown.scss" />
+    <Content Include="Content\sass\material-dashboard\_fileupload.scss" />
+    <Content Include="Content\sass\material-dashboard\_footers.scss" />
+    <Content Include="Content\sass\material-dashboard\_forms.scss" />
+    <Content Include="Content\sass\material-dashboard\_inputs-size.scss" />
+    <Content Include="Content\sass\material-dashboard\_inputs.scss" />
+    <Content Include="Content\sass\material-dashboard\_labels.scss" />
+    <Content Include="Content\sass\material-dashboard\_misc.scss" />
+    <Content Include="Content\sass\material-dashboard\_mixins.scss" />
+    <Content Include="Content\sass\material-dashboard\_navbars.scss" />
+    <Content Include="Content\sass\material-dashboard\_pages.scss" />
+    <Content Include="Content\sass\material-dashboard\_pagination.scss" />
+    <Content Include="Content\sass\material-dashboard\_panels.scss" />
+    <Content Include="Content\sass\material-dashboard\_pills.scss" />
+    <Content Include="Content\sass\material-dashboard\_popups.scss" />
+    <Content Include="Content\sass\material-dashboard\_progress.scss" />
+    <Content Include="Content\sass\material-dashboard\_radios.scss" />
+    <Content Include="Content\sass\material-dashboard\_responsive.scss" />
+    <Content Include="Content\sass\material-dashboard\_ripples.scss" />
+    <Content Include="Content\sass\material-dashboard\_shadows.scss" />
+    <Content Include="Content\sass\material-dashboard\_sidebar-and-main-panel.scss" />
+    <Content Include="Content\sass\material-dashboard\_tables.scss" />
+    <Content Include="Content\sass\material-dashboard\_tabs.scss" />
+    <Content Include="Content\sass\material-dashboard\_tags.scss" />
+    <Content Include="Content\sass\material-dashboard\_timeline.scss" />
+    <Content Include="Content\sass\material-dashboard\_togglebutton.scss" />
+    <Content Include="Content\sass\material-dashboard\_typography.scss" />
+    <Content Include="Content\sass\material-dashboard\_variables.scss" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\material-dashboard\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\material-dashboard\bootstrap-notify.js" />
+    <Content Include="Scripts\material-dashboard\bootstrap.min.js" />
+    <Content Include="Scripts\material-dashboard\chartist.min.js" />
+    <Content Include="Scripts\material-dashboard\demo.js" />
+    <Content Include="Scripts\material-dashboard\fullcalendar.min.js" />
+    <Content Include="Scripts\material-dashboard\jasny-bootstrap.min.js" />
+    <Content Include="Scripts\material-dashboard\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\material-dashboard\jquery-jvectormap.js" />
+    <Content Include="Scripts\material-dashboard\jquery-ui.min.js" />
+    <Content Include="Scripts\material-dashboard\jquery.bootstrap-wizard.js" />
+    <Content Include="Scripts\material-dashboard\jquery.datatables.js" />
+    <Content Include="Scripts\material-dashboard\jquery.select-bootstrap.js" />
+    <Content Include="Scripts\material-dashboard\jquery.tagsinput.js" />
+    <Content Include="Scripts\material-dashboard\jquery.validate.min.js" />
+    <Content Include="Scripts\material-dashboard\jquery-cookie.js" />
+    <Content Include="Scripts\material-dashboard\material-dashboard.js" />
+    <Content Include="Scripts\material-dashboard\material.min.js" />
+    <Content Include="Scripts\material-dashboard\moment.min.js" />
+    <Content Include="Scripts\material-dashboard\nouislider.min.js" />
+    <Content Include="Scripts\material-dashboard\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Scripts\material-dashboard\show-notification.js" />
+    <Content Include="Scripts\material-dashboard\sweetalert2.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\views\customers\index.js" />
+    <Content Include="Scripts\views\customers\new2.js" />
+    <Content Include="Scripts\views\home\index.js" />
+    <Content Include="Scripts\views\movie\index.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Movies\Random.cshtml" />
+    <Content Include="Views\Shared\_Layout_MaterialDashboard.cshtml" />
+    <Content Include="Views\Shared\_Layout_MaterialDB_Footer.cshtml" />
+    <Content Include="Views\Shared\_Layout_MaterialDB_Menu.cshtml" />
+    <Content Include="Views\Shared\_Layout_MaterialDB_Nav.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Customers\Detail.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Detail.cshtml" />
+    <Content Include="Views\Customers\New.cshtml" />
+    <Content Include="Views\Customers\New2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Abstract\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807010933011_InitialModel.resx">
+      <DependentUpon>201807010933011_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807010948051_AddIsSubscribedToCusTomer.resx">
+      <DependentUpon>201807010948051_AddIsSubscribedToCusTomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807010954586_AddMemBershipType.resx">
+      <DependentUpon>201807010954586_AddMemBershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807011000311_PopulateMembershipTypes.resx">
+      <DependentUpon>201807011000311_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807011010405_ApplyAnotationToCustomerName.resx">
+      <DependentUpon>201807011010405_ApplyAnotationToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807020408201_AddNameToMembershipType.resx">
+      <DependentUpon>201807020408201_AddNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807020410092_PopulateMembershipTypeName.resx">
+      <DependentUpon>201807020410092_PopulateMembershipTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807020426504_AddBirthdayToCustomers.resx">
+      <DependentUpon>201807020426504_AddBirthdayToCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807020428495_SetMembershipTypeNameRequired.resx">
+      <DependentUpon>201807020428495_SetMembershipTypeNameRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807020604383_AddMovies.resx">
+      <DependentUpon>201807020604383_AddMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807020606102_PopulateGenre.resx">
+      <DependentUpon>201807020606102_PopulateGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807020748394_RemoveCustomerAge.resx">
+      <DependentUpon>201807020748394_RemoveCustomerAge.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58464</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58464/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

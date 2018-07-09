@@ -1,0 +1,73 @@
+﻿@using Giangbb.Utils
+@model Giangbb.Models.Customer
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout_MaterialDashboard.cshtml";
+}
+
+@{
+    var customer = Model;
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <div class="card">
+                <div class="card-header card-header-icon" data-background-color="rose">
+                    <i class="material-icons">contacts</i>
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">Customer</h4>
+                    <form class="form-horizontal">
+                        <div class="row">
+                            <label class="col-md-3 label-on-left">Id</label>
+                            <div class="col-md-9">
+                                <div class="form-group label-floating is-empty">
+                                    <label class="control-label"></label>
+                                    <input type="text" class="form-control" value="@customer.Id" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-3 label-on-left">Name</label>
+                            <div class="col-md-9">
+                                <div class="form-group label-floating is-empty">
+                                    <label class="control-label"></label>
+                                    <input type="text" class="form-control" value="@customer.Name">
+                                </div>
+                            </div>
+                        </div>                        
+
+                        @if (customer.Birthday.HasValue)
+                        {
+                            <div class="row">
+                                <label class="col-md-3 label-on-left">Birthday</label>
+                                <div class="col-md-9">
+                                    <div class="form-group label-floating is-empty">
+                                        <label class="control-label"></label>
+                                        <input type="text" class="form-control" value="@DateUtils.GetDateStringByFormat(customer.Birthday.Value,DateUtils.FORMAT_BIRTHDAY)">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        
+                        <div class="row">
+                            <label class="col-md-3 label-on-left">Address</label>
+                            <div class="col-md-9">
+                                <div class="form-group label-floating is-empty">
+                                    <label class="control-label"></label>
+                                    <input type="text" class="form-control" value="@customer.Address">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

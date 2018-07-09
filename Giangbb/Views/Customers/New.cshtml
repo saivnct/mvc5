@@ -1,0 +1,74 @@
+﻿@model Giangbb.ViewModels.NewCustomerViewModel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout_MaterialDashboard.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <div class="card">
+                <div class="card-header card-header-icon" data-background-color="rose">
+                    <i class="material-icons">contacts</i>
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">Customer</h4>
+                    @using (Html.BeginForm("Save", "Customers", FormMethod.Post, new { id = "customerForm" }))
+                    {
+                        // @Html.ValidationSummary()   //show all error
+                        @Html.ValidationSummary(true, "Please fix all errors")
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CustomerForm.Name)
+                            @Html.TextBoxFor(m => m.CustomerForm.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.CustomerForm.Name)
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CustomerForm.Address)
+                            @Html.TextBoxFor(m => m.CustomerForm.Address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.CustomerForm.Address)
+                        </div>
+
+
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBoxFor(m => m.CustomerForm.IsSubscribedToNewLetters) Subscribe to newsletter
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.DropDownListFor(m => m.CustomerForm.MembershipTypeId,
+                                new SelectList(Model.MembershipTypes,"Id", "Name"),
+                                "Select Membership Type",
+                                new { @class = "selectpicker"})
+                            @Html.ValidationMessageFor(m => m.CustomerForm.MembershipTypeId)
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Birthday">Date of Birth</label>
+                            @Html.TextBoxFor(m => m.CustomerForm.Birthday, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.CustomerForm.Birthday)
+                        </div>
+
+                        @Html.HiddenFor(m => m.CustomerForm.Id)
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <div class="col-md-offset-5 col-md-6">
+                                <div class="form-group form-button">
+                                    <button type="submit" class="btn btn-fill btn-rose">Save</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section AddToBotom{
+    <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/View/customers/new/js", true)"></script>
+}

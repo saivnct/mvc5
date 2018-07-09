@@ -1,0 +1,79 @@
+﻿@using Giangbb.Models
+
+@{
+    ViewBag.Title = "Movies";
+    ViewBag.MenuTitle = "Movies";
+    Layout = "~/Views/Shared/_Layout_MaterialDashboard.cshtml";
+}
+
+@{
+    var movies = (List<Movie>)ViewBag.Movies;
+}
+
+
+@section AddToHead{
+    @Styles.Render("~/MaterialDashboardDemo/css")
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-icon" data-background-color="purple">
+                    <i class="material-icons">assignment</i>
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">DataTables.net</h4>
+                    <div class="toolbar">
+                        <!--        Here you can write extra buttons/actions for the toolbar              -->
+                    </div>
+                    <div class="material-datatables">
+                        <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Genre</th>                                    
+                                    <th class="disabled-sorting text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Genre</th>          
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach (var movie in movies)
+                                {
+                                    <tr>
+                                        <td>@movie.Name</td>
+                                        <td>@movie.Genre.Name</td>                                        
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-simple btn-info btn-icon like"><i class="material-icons">favorite</i></a>
+                                            <a href="movies/detail/@movie.Id" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">dvr</i></a>
+                                            <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end content-->
+            </div>
+            <!--  end card  -->
+        </div>
+        <!-- end col-md-12 -->
+    </div>
+</div>
+
+
+
+
+
+@section AddToBotom{
+    @Scripts.Render("~/MaterialDashboardDemo/js")
+    <script src="/Scripts/views/movie/index.js" asp-append-version="true"></script>    @*appenversion -> force browser reload js file*@
+}

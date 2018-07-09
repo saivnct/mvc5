@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title - Giangbb Application</title>
+      
+        @Styles.Render("~/Bootstrap/css")     
+            
+        @Styles.Render("~/MaterialDashboard/css")  
+
+        @Styles.Render("~/Views/css")  
+
+        @Styles.Render("~/MaterialDashboard/font")
+
+            
+            
+        @if (IsSectionDefined("AddToHead"))
+        {
+            @RenderSection("AddToHead", required: false)
+        }
+       
+    </head>
+    <body>
+        <div class="wrapper">
+            @Html.Partial("_Layout_MaterialDB_Menu")
+            <div class="main-panel">
+                @Html.Partial("_Layout_MaterialDB_Nav")
+                <div class="content">
+                    @RenderBody()
+                </div>
+                @Html.Partial("_Layout_MaterialDB_Footer")
+            </div>
+        </div>
+
+
+        @Scripts.Render("~/JQuery/js")
+
+        @Scripts.Render("~/Bootstrap/js")
+
+        @Scripts.Render("~/MaterialDashboard/js")
+
+        <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Notification/js", true)"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                showNotification();
+            })
+        </script>
+
+        @if (IsSectionDefined("AddToBotom"))
+        {
+            @RenderSection("AddToBotom", required: false)
+        }
+
+
+    </body>
+</html>
