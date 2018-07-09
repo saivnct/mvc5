@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AutoMapper;
+using Giangbb.Dtos;
 using Giangbb.Models;
 
 namespace Giangbb.Controllers.API
@@ -18,41 +20,46 @@ namespace Giangbb.Controllers.API
         }
 
         //GET /api/customers
-        public IEnumerable<Customer> GetCustomers()
+        public IHttpActionResult GetCustomers()
         {
-            return _context.Customers.ToList();
+            return Ok(_context.Customers.ToList().Select(Mapper.Map<Customer,CustomerDto>));    //reference to method Mapper.Map<Customer,CustomerDto>
         }
 
         //GET /api/customers/1
-        public Customer GetCustomer(int id)
+        public IHttpActionResult GetCustomer(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             }
 
-            return customer;
+            return Ok(Mapper.Map<Customer,CustomerDto>(customer));  //map customer obj to customerdto obj
         }
 
         //POST /api/customers
         [HttpPost]
-        public Customer CreateCustomer(Customer customer)
+        public IHttpActionResult CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
             {
-                throw  new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
+
+            var customer = Mapper.Map<CustomerDto, Customer>(customerDto);  //map customerdto obj to customer obj
 
             _context.Customers.Add(customer);
             _context.SaveChanges(); //at this point, the Id property will be set based on the ID generated from the database
-            return customer;
+            customerDto.Id = customer.Id;
+
+
+            return Created(new Uri(Request.RequestUri+"/"+customer.Id), customerDto);   //follow the API convention -> when we created an obj -> respone code 201: created
         }
 
         //PUT /api/customers/1
         [HttpPut]
-        public void UpdateCustomer(int id, Customer customer)
+        public IHttpActionResult UpdateCustomer(int id, CustomerDto customerdto)
         {
             if (!ModelState.IsValid)
             {
@@ -66,20 +73,16 @@ namespace Giangbb.Controllers.API
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
-            customerInDb.Name = customer.Name;
-            customerInDb.Birthday = customer.Birthday;
-            customerInDb.Address = customer.Address;
-            customerInDb.IsSubscribedToNewLetters = customer.IsSubscribedToNewLetters;
-            customerInDb.MembershipTypeId = customer.MembershipTypeId;
+            Mapper.Map<CustomerDto, Customer>(customerdto, customerInDb);         
 
             _context.SaveChanges();
 
-
+            return Ok();
         }
 
         //DELETE /api/customers/1
         [HttpDelete]
-        public void DeleteCustomer(int id)
+        public IHttpActionResult DeleteCustomer(int id)
         {
             var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
 
@@ -90,6 +93,8 @@ namespace Giangbb.Controllers.API
 
             _context.Customers.Remove(customerInDb);
             _context.SaveChanges();
+
+            return Ok();
         }
 
 

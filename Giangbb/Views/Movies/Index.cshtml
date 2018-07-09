@@ -36,6 +36,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Genre</th>
+                                    <th>Number In Stock</th>
                                     <th>Release Date</th>
                                     <th>Date Added</th>
                                     <th class="disabled-sorting text-right">Actions</th>
@@ -45,6 +46,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Genre</th>
+                                    <th>Number In Stock</th>
                                     <th>Release Date</th>
                                     <th>Date Added</th>
                                     <th class="text-right">Actions</th>
@@ -56,6 +58,7 @@
                                     <tr>
                                         <td>@movie.Name</td>
                                         <td>@movie.Genre.Name</td>    
+                                        <td>@movie.NumberInStock</td>    
                                         <td>@DateUtils.GetDateStringByFormat(movie.ReleaseDate, DateUtils.FORMAT_BIRTHDAY)</td>
                                         <td>@DateUtils.GetDateStringByFormat(movie.DateAdded, DateUtils.FORMAT_BIRTHDAY)</td>
                                         <td class="text-right">                                            

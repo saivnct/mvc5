@@ -12,7 +12,16 @@ namespace Giangbb.App_Start
     {
         public MappingProfile()
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer, CustomerDto>());
+            CreateMap<Customer, CustomerDto>();
+            CreateMap<CustomerDto, Customer>().ForMember(m => m.Id, opt => opt.Ignore());
+            CreateMap<Movie, MovieDto>();
+            CreateMap<MovieDto, Movie>().ForMember(m => m.Id, opt => opt.Ignore());
+
+            //Id is the key property for the Movie/Customer class, and a key property should not be changed.
+            //That’s why we get exception when update model.To resolve this, you need to tell AutoMapper to ignore
+            //Id during mapping of a MovieDto to Movie
+
+
         }
     }
 }

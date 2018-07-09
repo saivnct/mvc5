@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using Giangbb.Models;
 
 namespace Giangbb.Dtos
 {
@@ -14,21 +12,15 @@ namespace Giangbb.Dtos
     //using main object -> security hole -> hacker can easily pass addtional data into JSON
     //we can exclude some properties from mapping
     //if property names dont match, we can override the default convention
-    public class CustomerDto
+    public class MovieDto
     {
-
         public int Id { get; set; }
-
-        public DateTime? Birthday { get; set; }
-
-        [Required]
-        [StringLength(255)]
         public string Name { get; set; }
 
-        public string Address { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public DateTime DateAdded { get; set; }
+        public int NumberInStock { get; set; }        
 
-        public bool IsSubscribedToNewLetters { get; set; }        
-
-        public byte MembershipTypeId { get; set; }
+        public byte GenreId { get; set; }
     }
 }
