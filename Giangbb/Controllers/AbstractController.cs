@@ -13,5 +13,7 @@ namespace Giangbb.Controllers
             Response.Cookies.Add(new HttpCookie("FlashMessage", message) { Path = "/" });
             Response.Cookies.Add(new HttpCookie("FlashType", type) { Path = "/" });
         }
+
+        //testgit
     }
 }
