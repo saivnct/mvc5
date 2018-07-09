@@ -5,8 +5,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Giangbb.FormModels;
 using Giangbb.Models;
 using Giangbb.ViewModels;
+using Giangbb.Utils;
 
 namespace Giangbb.Controllers
 {   
@@ -106,10 +108,111 @@ namespace Giangbb.Controllers
             if (movie == null)
             {
                 return HttpNotFound();
-            }            
+            }
 
-            return View(movie);
+            var gensList = _context.Genres.ToList();            
+
+            NewMovieViewModel newMovieViewModel = new NewMovieViewModel { Genres = gensList, Movie = movie };
+
+            return View(newMovieViewModel);
         }
+
+        public ActionResult New()
+        {
+            var gensList = _context.Genres.ToList();
+            MovieForm movieForm = new MovieForm();
+
+            NewMovieViewModel newMovieViewModel = new NewMovieViewModel{Genres = gensList};
+            return View(newMovieViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(MovieForm movieForm)
+        {
+            if (movieForm == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (!ModelState.IsValid)    //check submit form is correct or not, base all attribute of obj
+            {
+                SetFlash("Wrong submit form!", "danger");
+                return RedirectToAction("Index", "Movies");
+            }
+
+            var movie= _context.Movies.Include(c => c.Genre).SingleOrDefault(c => c.Id == movieForm.Id);
+            if (movie == null)
+            {
+                SetFlash("Not found movie!", "danger");
+                return RedirectToAction("Index", "Movies");
+
+            }
+
+            movie.Name = movieForm.Name;
+            movie.ReleaseDate = DateUtils.GetDateFromString(movieForm.ReleaseDate, DateUtils.FORMAT_BIRTHDAY);
+            movie.NumberInStock = movieForm.NumberInStock;
+            movie.GenreId = movieForm.GenreId;
+                        
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Movies");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Add(MovieForm movieForm)
+        {
+            if (movieForm == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (!ModelState.IsValid)    //check submit form is correct or not, base all attribute of obj
+            {
+                SetFlash("Wrong submit form!", "danger");                
+                var gensList = _context.Genres.ToList();
+                var newMovieViewModel = new NewMovieViewModel { Genres = gensList };
+                return View("New", newMovieViewModel);
+            }
+
+            Movie movie = new Movie
+            {                
+                Name = movieForm.Name,
+                ReleaseDate = DateUtils.GetDateFromString(movieForm.ReleaseDate, DateUtils.FORMAT_BIRTHDAY),
+                DateAdded = DateUtils.Now(),
+                NumberInStock = movieForm.NumberInStock,
+                GenreId = movieForm.GenreId                
+            };
+
+            _context.Movies.Add(movie);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Movies");
+        }
+
+
+        public ActionResult Del(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index", "Movies");
+            }
+
+            var movie = _context.Movies.Include(c => c.Genre).SingleOrDefault(c => c.Id == id);
+
+            if (movie == null)
+            {
+                return RedirectToAction("Index", "Movies");
+            }
+
+            _context.Movies.Remove(movie);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Movies");
+        }
+
+
 
         //        public ActionResult Index(int? pageIndex, string sortBy)
         //        {

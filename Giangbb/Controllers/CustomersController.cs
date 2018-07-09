@@ -140,7 +140,7 @@ namespace Giangbb.Controllers
                 //                return RedirectToAction("New2", "Customers");
                 var membershipTypes = _context.MembershipTypes.ToList();
                 var newCustomerViewModel = new NewCustomerViewModel { CustomerForm = customerForm,MembershipTypes = membershipTypes };
-                return View("New", newCustomerViewModel);
+                return View("New2", newCustomerViewModel);
             }
 
             Customer customer = new Customer

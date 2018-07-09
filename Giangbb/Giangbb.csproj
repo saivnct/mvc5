@@ -194,6 +194,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="FormModels\CustomerForm.cs" />
+    <Compile Include="FormModels\MovieForm.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -259,6 +260,7 @@
     <Compile Include="Utils\DateUtils.cs" />
     <Compile Include="Utils\ObjUtils.cs" />
     <Compile Include="ViewModels\NewCustomerViewModel.cs" />
+    <Compile Include="ViewModels\NewMovieViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -500,6 +502,7 @@
     <Content Include="Scripts\views\customers\new2.js" />
     <Content Include="Scripts\views\home\index.js" />
     <Content Include="Scripts\views\movie\index.js" />
+    <Content Include="Scripts\views\movie\new.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -545,6 +548,7 @@
     <Content Include="Views\Movies\Detail.cshtml" />
     <Content Include="Views\Customers\New.cshtml" />
     <Content Include="Views\Customers\New2.cshtml" />
+    <Content Include="Views\Movies\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -103,6 +103,10 @@ namespace Giangbb
             bundles.Add(new ScriptBundle("~/View/customers/new/js").Include(
                 "~/Scripts/views/customers/new2.js"
             ));
+
+            bundles.Add(new ScriptBundle("~/View/movies/new/js").Include(
+                "~/Scripts/views/movie/new.js"
+            ));
         }
     }
 }

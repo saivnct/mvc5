@@ -2,8 +2,8 @@
     $('#datatables').DataTable({
         "pagingType": "full_numbers",
         "lengthMenu": [
-            [2, 4, 6, -1],
-            [2, 4, 6, "All"]
+            [10, 20, 30, -1],
+            [10, 20, 30, "All"]
         ],
         responsive: true,
         language: {

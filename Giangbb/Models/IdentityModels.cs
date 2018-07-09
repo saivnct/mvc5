@@ -23,6 +23,7 @@ namespace Giangbb.Models
         public DbSet<Customer> Customers { get; set; }  //this dbSet represents the customer table in our db
         public DbSet<Movie> Movies { get; set; }  //this dbSet represents the customer table in our db
         public DbSet<MembershipType> MembershipTypes { get; set; }  //this dbSet represents the customer table in our db
+        public DbSet<Genre> Genres { get; set; }  //this dbSet represents the customer table in our db
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

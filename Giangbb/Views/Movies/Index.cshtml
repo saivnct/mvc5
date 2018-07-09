@@ -1,4 +1,5 @@
 ﻿@using Giangbb.Models
+@using Giangbb.Utils
 
 @{
     ViewBag.Title = "Movies";
@@ -27,20 +28,25 @@
                     <h4 class="card-title">DataTables.net</h4>
                     <div class="toolbar">
                         <!--        Here you can write extra buttons/actions for the toolbar              -->
+                        <a href="/movies/new" class="btn btn-fill btn-rose">Create New</a>
                     </div>
                     <div class="material-datatables">
                         <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Genre</th>                                    
+                                    <th>Genre</th>
+                                    <th>Release Date</th>
+                                    <th>Date Added</th>
                                     <th class="disabled-sorting text-right">Actions</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Genre</th>          
+                                    <th>Genre</th>
+                                    <th>Release Date</th>
+                                    <th>Date Added</th>
                                     <th class="text-right">Actions</th>
                                 </tr>
                             </tfoot>
@@ -49,11 +55,12 @@
                                 {
                                     <tr>
                                         <td>@movie.Name</td>
-                                        <td>@movie.Genre.Name</td>                                        
-                                        <td class="text-right">
-                                            <a href="#" class="btn btn-simple btn-info btn-icon like"><i class="material-icons">favorite</i></a>
+                                        <td>@movie.Genre.Name</td>    
+                                        <td>@DateUtils.GetDateStringByFormat(movie.ReleaseDate, DateUtils.FORMAT_BIRTHDAY)</td>
+                                        <td>@DateUtils.GetDateStringByFormat(movie.DateAdded, DateUtils.FORMAT_BIRTHDAY)</td>
+                                        <td class="text-right">                                            
                                             <a href="movies/detail/@movie.Id" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">dvr</i></a>
-                                            <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+                                            <a href="movies/del/@movie.Id" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
                                         </td>
                                     </tr>
                                 }
