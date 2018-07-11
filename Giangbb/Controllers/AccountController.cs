@@ -58,7 +58,8 @@ namespace Giangbb.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return View("LoginAcc");
+//            return View();
         }
 
         //
@@ -70,7 +71,7 @@ namespace Giangbb.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View("LoginAcc");
             }
 
             // This doesn't count login failures towards account lockout
@@ -87,7 +88,7 @@ namespace Giangbb.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                    return View("LoginAcc");
             }
         }
 
@@ -139,7 +140,9 @@ namespace Giangbb.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            ViewBag.Title = "Register";
+            return View("RegisterAcc");
+//            return View();
         }
 
         //
@@ -155,21 +158,25 @@ namespace Giangbb.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //App_start/IdentityConfig.cs to modify rule
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
+                    SetFlash("New User Added Successfully!", "success");
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
 
+            SetFlash("Wrong submit form!", "danger");
+            return View("RegisterAcc");
             // If we got this far, something failed, redisplay form
-            return View(model);
+            //            return View(model);
         }
 
         //

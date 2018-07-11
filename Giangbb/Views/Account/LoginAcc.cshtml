@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout_MaterialDashboard_Raw.cshtml";
+}
+
+<nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/home">Giangbb</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/home">
+                        <i class="material-icons">dashboard</i> Dashboard
+                    </a>
+                </li>
+                <li class="">
+                    <a href="/account/register">
+                        <i class="material-icons">person_add</i> Register
+                    </a>
+                </li>
+                <li class=" active ">
+                    <a href="/account/login">
+                        <i class="material-icons">fingerprint</i> Login
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="wrapper wrapper-full-page">
+    <div class="full-page login-page" filter-color="black" data-image="/Content/Images/login.jpeg">
+        <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                        @using (Html.BeginForm("Login", "Account", new {ReturnUrl = ViewBag.ReturnUrl },FormMethod.Post, new { id = "LoginForm" }))
+                        {
+                        <div class="card card-login card-hidden">
+                            <div class="card-header text-center" data-background-color="rose">
+                                <h4 class="card-title">Login</h4>
+                                <div class="social-line">
+                                    <a href="#btn" class="btn btn-just-icon btn-simple">
+                                        <i class="fa fa-facebook-square"></i>
+                                    </a>
+                                    <a href="#pablo" class="btn btn-just-icon btn-simple">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                    <a href="#eugen" class="btn btn-just-icon btn-simple">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new {id = "LoginForm"}))
+                            {
+                            <div class="card-content">
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary()
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">email</i>
+                                    </span>
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Email address</label>
+                                        <input type="email" name="Email" id="Email" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">lock_outline</i>
+                                    </span>
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Password</label>
+                                        <input type="password" name="Password" id="Password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="RememberMeCheckbox" onclick='handleRememberMeCheckbox(this);'> Remember me
+                                        <input type="hidden" name="RememberMe" id="RememberMe" value="false">
+                                    </label>
+                                </div>
+                            </div>
+                            }
+                        
+                            <div class="footer text-center">
+                                <button type="submit" class="btn btn-primary btn-rose btn-round">Login</button>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="/home">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/home">
+                                Company
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/home">
+                                Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/home">
+                                Blog
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright pull-right">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>
+                    <a href="http://www.giangbb.com">Giangbb</a>, made with love for a better web
+                </p>
+            </div>
+        </footer>
+    </div>
+</div>
+
+@section AddToBotom{
+    <script src="/Scripts/views/account/login.js"></script>
+}

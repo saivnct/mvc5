@@ -8,6 +8,9 @@ namespace Giangbb
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+
+            //appy authorize for whole application
+            filters.Add(new AuthorizeAttribute());
         }
     }
 }

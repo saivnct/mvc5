@@ -26,7 +26,7 @@ namespace Giangbb.Controllers
             _context.Dispose();
         }
 
-        // GET: Customers
+        // GET: Customers        
         public ActionResult Index()
         {
             var customers = _context.Customers.Include(c => c.MembershipType).ToList(); // we declare data set in IdentityModels.ApplicationDbContext

@@ -51,11 +51,19 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="material-icons">person</i>
                         <p class="hidden-lg hidden-md">Profile</p>
                     </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">My Profile</a>
+                        </li>
+                        <li>
+                            <a href="javascript:document.getElementById('LogOffForm').submit()">Log off</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="separator hidden-lg hidden-md"></li>
             </ul>
@@ -69,6 +77,10 @@
                     <div class="ripple-container"></div>
                 </button>
             </form>
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "LogOffForm"}))
+            {
+                @Html.AntiForgeryToken()            
+            }
         </div>
     </div>
 </nav>

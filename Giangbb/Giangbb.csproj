@@ -272,6 +272,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Validations\CustomValidationMin18YearsIfAMember.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -521,6 +522,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\views\account\login.js" />
+    <Content Include="Scripts\views\account\register.js" />
     <Content Include="Scripts\views\customers\index.js" />
     <Content Include="Scripts\views\customers\new2.js" />
     <Content Include="Scripts\views\home\index.js" />
@@ -572,6 +575,9 @@
     <Content Include="Views\Customers\New.cshtml" />
     <Content Include="Views\Customers\New2.cshtml" />
     <Content Include="Views\Movies\New.cshtml" />
+    <Content Include="Views\Shared\_Layout_MaterialDashboard_Raw.cshtml" />
+    <Content Include="Views\Account\RegisterAcc.cshtml" />
+    <Content Include="Views\Account\LoginAcc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

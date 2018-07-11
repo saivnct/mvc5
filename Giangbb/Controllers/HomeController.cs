@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace Giangbb.Controllers
-{
+{    
     public class HomeController : AbstractController
     {
         public ActionResult Index()
