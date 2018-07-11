@@ -64,6 +64,13 @@ namespace Giangbb.Models
 
     public class RegisterViewModel
     {
+
+        [Required]
+        [MinLength(6)]        
+        [MaxLength(255)]
+        public string UserName { get; set; }
+
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -77,6 +84,10 @@ namespace Giangbb.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        public string DrivingLicense { get; set; }
     }
 
     public class ResetPasswordViewModel

@@ -30,33 +30,13 @@ namespace Giangbb.Controllers
         public ActionResult Index()
         {
             var customers = _context.Customers.Include(c => c.MembershipType).ToList(); // we declare data set in IdentityModels.ApplicationDbContext
-                                                                                        //Include(c => c.MembershipType) - eager loading -> Loading relative object          
-
-//            SetFlash("Giangdaika", "success");            
+                                                                                        //Include(c => c.MembershipType) - eager loading -> Loading relative object                               
         
             ViewBag.Customers = customers;
             return View();
         }
 
-        public ActionResult Del(int? id)
-        {
-            if (!id.HasValue)
-            {      
-                return RedirectToAction("Index", "Customers");
-            }
-
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
-
-            if (customer == null)
-            {
-                return RedirectToAction("Index", "Customers");
-            }
-
-            _context.Customers.Remove(customer);
-            _context.SaveChanges();
-
-            return RedirectToAction("Index", "Customers");
-        }
+        
 
         public ActionResult Detail(int? id)
         {
@@ -75,6 +55,7 @@ namespace Giangbb.Controllers
             return View(customer);
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit(int? id)
         {
             if (!id.HasValue)
@@ -107,7 +88,9 @@ namespace Giangbb.Controllers
             return View("New", newCustomerViewModel);
         }
 
+
         //render view with HtmlHelper
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -117,6 +100,7 @@ namespace Giangbb.Controllers
         }
 
         //render view without HtmlHelper
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New2()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -127,6 +111,7 @@ namespace Giangbb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Save(CustomerForm customerForm)
         {
             if (customerForm == null)
@@ -175,6 +160,27 @@ namespace Giangbb.Controllers
 
 
             return RedirectToAction("Index","Customers");
+        }
+
+        [Authorize(Roles = RoleName.CanManageMovies)]
+        public ActionResult Del(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("Index", "Customers");
+            }
+
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customer == null)
+            {
+                return RedirectToAction("Index", "Customers");
+            }
+
+            _context.Customers.Remove(customer);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Customers");
         }
 
 

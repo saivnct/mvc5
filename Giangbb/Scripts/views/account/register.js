@@ -26,6 +26,10 @@
             },
             "ConfirmPassword": {                
                 equalTo: "#Password"
+            },
+            "DrivingLicense": {
+                required: true,
+                maxlength: 255
             }
         },
         messages: {
@@ -44,6 +48,10 @@
             },
             "ConfirmPassword": {
                 equalTo: "Repeat password must be match"
+            },
+            "DrivingLicense": {
+                required: "DrivingLicense must not empty!",
+                maxlength: "DrivingLicense must not be more than 255 characters!"
             }
         },
         errorPlacement: function (error, element) {

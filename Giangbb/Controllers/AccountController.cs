@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Giangbb.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Giangbb.Controllers
 {
@@ -74,9 +75,14 @@ namespace Giangbb.Controllers
                 return View("LoginAcc");
             }
 
+            //get user by email
+            var user = UserManager.FindByEmail(model.Email);
+
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            // giangbb - PasswordSignInAsync -> take username, not password
+            var result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -154,10 +160,17 @@ namespace Giangbb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, DrivingLicense = model.DrivingLicense};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //temp create user admin
+                    //only use for the 1st time
+//                    var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+//                    var roleManager = new RoleManager<IdentityRole>(roleStore);
+//                    await roleManager.CreateAsync(new IdentityRole("CanManageMovie"));
+//                    await UserManager.AddToRoleAsync(user.Id, "CanManageMovie");
+
                     //App_start/IdentityConfig.cs to modify rule
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 

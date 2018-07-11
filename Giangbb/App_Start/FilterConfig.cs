@@ -11,6 +11,9 @@ namespace Giangbb
 
             //appy authorize for whole application
             filters.Add(new AuthorizeAttribute());
+
+            //reject http , only accept https
+            filters.Add(new RequireHttpsAttribute());
         }
     }
 }
