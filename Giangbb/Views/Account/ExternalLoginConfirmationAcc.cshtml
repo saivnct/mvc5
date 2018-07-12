@@ -1,11 +1,9 @@
-﻿@using Microsoft.Owin.Security
-
+﻿@model Giangbb.Models.ExternalLoginConfirmationViewModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Confirmation Account";
     Layout = "~/Views/Shared/_Layout_MaterialDashboard_Raw.cshtml";
-
-    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
 }
+
 
 <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
     <div class="container">
@@ -46,7 +44,7 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="card card-signup">
-                        <h2 class="card-title text-center">Register</h2>
+                        <h2 class="card-title text-center">Confirmation Account</h2>
                         <div class="row">
                             <div class="col-md-5 col-md-offset-1">
                                 <div class="card-content">
@@ -86,39 +84,7 @@
                                 </div>
                             </div>
                             <div class="col-md-5">
-
-                                @if (loginProviders.Count() != 0)
-                                {
-                                    using (Html.BeginForm("ExternalLogin", "Account", FormMethod.Post, new { id = "ExternalLoginForm" }))
-                                    {
-                                        @Html.AntiForgeryToken()
-                                        <div class="social text-center">
-                                            @foreach (AuthenticationDescription p in loginProviders)
-                                            {
-                                                if (p.AuthenticationType == "Facebook")
-                                                {                                                    
-                                                    <button type="submit" class="btn btn-just-icon btn-round btn-facebook" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType">
-                                                        <i class="fa fa-facebook"> </i>
-                                                    </button>
-                                                }
-                                                else if (p.AuthenticationType == "Google")
-                                                {                                                    
-                                                    <button type="submit" class="btn btn-just-icon btn-round btn-dribbble" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType">                                                        
-                                                        <i class="fa fa-google-plus"></i>
-                                                    </button>
-                                                }
-                                                else if (p.AuthenticationType == "Twitter")
-                                                {                                                    
-                                                    <button type="submit" class="btn btn-just-icon btn-round btn-twitter" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType">
-                                                        <i class="fa fa-twitter"></i>
-                                                    </button>
-                                                }                                                
-                                            }                                                                                                                                   
-                                        </div>
-                                    }
-                                }
-                                
-                                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "RegisterForm" }))
+                                @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "ExternalLoginConfirmationForm" }))
                                 {
 
                                     <div class="card-content">
@@ -128,40 +94,19 @@
                                             <span class="input-group-addon">
                                                 <i class="material-icons">face</i>
                                             </span>
-                                            <input type="text" class="form-control" id="UserName" name="UserName" placeholder="UserName...">
+                                            <input type="text" class="form-control" id="UserName" name="UserName" placeholder="UserName..." value="@Model.UserName">
                                         </div>
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="material-icons">email</i>
                                             </span>
-                                            <input type="text" class="form-control" id="Email" name="Email" placeholder="Email...">
+                                            <input type="text" class="form-control" id="Email" name="Email" placeholder="Email..." value="@Model.Email">
                                         </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="material-icons">lock_outline</i>
-                                            </span>
-                                            <input type="password" id="Password" name="Password" placeholder="Password..." class="form-control" />
-                                        </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="material-icons">lock_outline</i>
-                                            </span>
-                                            <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm Password..." class="form-control" />
-                                        </div>
-
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="material-icons">local_taxi</i>
                                             </span>
-                                            <input type="text" class="form-control" id="DrivingLicense" name="DrivingLicense" placeholder="Driving License...">
-                                        </div>
-
-                                        <!-- If you want to add a checkbox to this form, uncomment this code -->
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="optionsCheckboxes" checked> I agree to the
-                                                <a href="#something">terms and conditions</a>.
-                                            </label>
+                                            <input type="text" class="form-control" id="DrivingLicense" name="DrivingLicense" placeholder="Driving License..." value="@Model.DrivingLicense">
                                         </div>
                                     </div>
                                     <div class="footer text-center">
@@ -213,5 +158,6 @@
 </div>
 
 @section AddToBotom{
-    <script src="/Scripts/views/account/register.js"></script>
+    <script src="/Scripts/views/account/externalLoginConfirmation.js"></script>
 }
+

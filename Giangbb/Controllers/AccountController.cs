@@ -363,7 +363,8 @@ namespace Giangbb.Controllers
                     // If the user does not have an account, then prompt the user to create an account
                     ViewBag.ReturnUrl = returnUrl;
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    return View("ExternalLoginConfirmationAcc", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email, UserName = loginInfo.DefaultUserName, DrivingLicense = ""});
+//                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email});
             }
         }
 
@@ -380,14 +381,17 @@ namespace Giangbb.Controllers
             }
 
             if (ModelState.IsValid)
-            {
+            {                
                 // Get the information about the user from the external login provider
                 var info = await AuthenticationManager.GetExternalLoginInfoAsync();
                 if (info == null)
                 {
-                    return View("ExternalLoginFailure");
+                    SetFlash("Unsuccessful login with service", "danger");
+                    return RedirectToAction("Login");
+//                    return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, DrivingLicense = model.DrivingLicense };
+//                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -395,6 +399,7 @@ namespace Giangbb.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        SetFlash("New User Added Successfully!", "success");
                         return RedirectToLocal(returnUrl);
                     }
                 }
@@ -402,7 +407,9 @@ namespace Giangbb.Controllers
             }
 
             ViewBag.ReturnUrl = returnUrl;
-            return View(model);
+            return View("ExternalLoginConfirmationAcc", model);
+            //            return View(model);
+
         }
 
         //
