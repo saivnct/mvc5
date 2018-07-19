@@ -209,6 +209,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\CustomersController.cs" />
     <Compile Include="Controllers\API\MoviesController.cs" />
+    <Compile Include="Controllers\API\RentalController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -216,6 +217,7 @@
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
+    <Compile Include="Dtos\RentalDto.cs" />
     <Compile Include="FormModels\CustomerForm.cs" />
     <Compile Include="FormModels\MovieForm.cs" />
     <Compile Include="Global.asax.cs">
@@ -277,9 +279,14 @@
     <Compile Include="Migrations\201807111231156_AddDrivingLicenseToAppUser.Designer.cs">
       <DependentUpon>201807111231156_AddDrivingLicenseToAppUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807190753505_AddRentalModel.cs" />
+    <Compile Include="Migrations\201807190753505_AddRentalModel.Designer.cs">
+      <DependentUpon>201807190753505_AddRentalModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Rental.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Validations\CustomValidationMin18YearsIfAMember.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -648,6 +655,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807111231156_AddDrivingLicenseToAppUser.resx">
       <DependentUpon>201807111231156_AddDrivingLicenseToAppUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807190753505_AddRentalModel.resx">
+      <DependentUpon>201807190753505_AddRentalModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
