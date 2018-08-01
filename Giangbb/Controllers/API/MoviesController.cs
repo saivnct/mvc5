@@ -41,6 +41,7 @@ namespace Giangbb.Controllers.API
             }
 
             var movie = Mapper.Map<MovieDto, Movie>(movieDto);
+            movie.NumberAvailable = movie.NumberInStock;
             _mContext.Movies.Add(movie);
             _mContext.SaveChanges();
             movieDto.Id = movie.Id;

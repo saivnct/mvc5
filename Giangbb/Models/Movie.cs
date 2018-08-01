@@ -13,6 +13,7 @@ namespace Giangbb.Models
         public DateTime ReleaseDate { get; set; }
         public DateTime DateAdded { get; set; }
         public int NumberInStock { get; set; }
+        public int NumberAvailable { get; set; }
 
         public Genre Genre { get; set; }
 

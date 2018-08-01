@@ -57,24 +57,22 @@ namespace Giangbb.Controllers.API
 
             var customer = _mDbContext.Customers.Single(c => c.Id == rentalDto.CustomerId); //if wrong id -> throw exception
 
-            if (customer == null)
-            {
-                return BadRequest();
-            }
-
 
             //select * from movies where id in (1,2,3)
             var movies = _mDbContext.Movies.Where(m => rentalDto.MovieIds.Contains(m.Id));
 
             foreach (var movie in movies)
             {
+                movie.NumberAvailable--;
                 var rental = new Rental
                 {
                     Customer = customer,
                     Movie = movie,
                     DateRented = DateUtils.Now()
                 };
+                
                 _mDbContext.Rentals.Add(rental);
+                
                
             }
 

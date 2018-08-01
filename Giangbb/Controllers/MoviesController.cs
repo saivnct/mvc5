@@ -182,6 +182,7 @@ namespace Giangbb.Controllers
                 ReleaseDate = DateUtils.GetDateFromString(movieForm.ReleaseDate, DateUtils.FORMAT_BIRTHDAY),
                 DateAdded = DateUtils.Now(),
                 NumberInStock = movieForm.NumberInStock,
+                NumberAvailable = movieForm.NumberInStock,
                 GenreId = movieForm.GenreId                
             };
 
