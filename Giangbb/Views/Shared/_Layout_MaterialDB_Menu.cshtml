@@ -58,7 +58,12 @@
                     <p>Movies</p>
                 </a>
             </li>
-            
+            <li id="menuRental">
+                <a href="/rental/new">
+                    <i class="material-icons">book</i>
+                    <p>Rental</p>
+                </a>
+            </li>
         </ul>
 
         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "LogOffForm"}))

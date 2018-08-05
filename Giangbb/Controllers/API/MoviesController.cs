@@ -26,9 +26,19 @@ namespace Giangbb.Controllers.API
         }
 
         //GET /api/movies/
-        public IHttpActionResult GetMovies()
+        public IHttpActionResult GetMovies(string query)
         {
-            return Ok(_mContext.Movies.Include(c => c.Genre).ToList().Select(Mapper.Map<Movie, MovieDto>));
+            var movies = _mContext.Movies
+                .Include(m => m.Genre)
+                .Where(m => m.NumberAvailable > 0 );
+            if (!String.IsNullOrWhiteSpace(query))
+            {
+                movies = movies.Where(m => m.Name.Contains(query));
+            }
+
+            var movieDtos = movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+
+            return Ok(movieDtos);
         }
 
         //POST /api/movies/

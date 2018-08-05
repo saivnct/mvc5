@@ -1,0 +1,59 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "New Rental Form";
+    Layout = "~/Views/Shared/_Layout_MaterialDashboard.cshtml";
+}
+
+@section AddToHead{
+    <link rel="stylesheet" href="/Content/views/typeahead.css">
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <div class="card">
+                <div class="card-header card-header-icon" data-background-color="rose">
+                    <i class="material-icons">book</i>
+                </div>
+                <div class="card-content">
+                    <h4 class="card-title">Rental</h4>
+                    <form id="rentalForm">
+                        <div class="form-group">
+                            <label for="customer">Customer</label>
+                            <div class="tt-container">
+                                <input type="text" class="form-control" name="customer" id="customer">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="movie">Movie</label>
+                            <div class="tt-container">
+                                <input type="text" class="form-control" name="movie" id="movie">
+                            </div>                            
+                        </div>
+
+                        <div class="form-group">
+                            <ul id="movies" class="list-group"></ul>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-offset-5 col-md-6">
+                                <div class="form-group form-button">
+                                    <button type="submit" class="btn btn-fill btn-rose">Add</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section AddToBotom{
+    <script src="/Scripts/typeahead.bundle.js" asp-append-version="true"></script>
+    <script src="/Scripts/views/rental/new.js" asp-append-version="true"></script>
+}

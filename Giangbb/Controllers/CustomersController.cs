@@ -180,6 +180,8 @@ namespace Giangbb.Controllers
             _context.Customers.Remove(customer);
             _context.SaveChanges();
 
+            SetFlash("Del customer Success!", "success");
+
             return RedirectToAction("Index", "Customers");
         }
 

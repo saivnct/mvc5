@@ -20,7 +20,12 @@ function showNotification() {
     var type = flash.type;
     var icon = 'notifications';
     var duration = 200;
-       
+
+    showSpecificNotification(type, message, icon, duration);    
+}
+
+function showSpecificNotification(type, message,icon,duration) {
+    //                type = ['', 'info', 'success', 'warning', 'danger', 'rose', 'primary'];
 
     if (!message || 0 === message.length || !type || 0 === type.length) {
         return;
@@ -33,8 +38,8 @@ function showNotification() {
         message: message
 
     }, {
-            type: type,
-            timer: duration,
+        type: type,
+        timer: duration,
         placement: {
             from: 'top',
             align: 'center'

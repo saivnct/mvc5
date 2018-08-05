@@ -21,9 +21,21 @@ namespace Giangbb.Controllers.API
         }
 
         //GET /api/customers
-        public IHttpActionResult GetCustomers()
+        public IHttpActionResult GetCustomers(string query=null)
         {
-            return Ok(_context.Customers.Include(c=>c.MembershipType).ToList().Select(Mapper.Map<Customer,CustomerDto>));    //reference to method Mapper.Map<Customer,CustomerDto>
+            var customerQuery = _context.Customers.Include(c => c.MembershipType);
+
+            if (!String.IsNullOrWhiteSpace(query))
+            {
+                customerQuery = customerQuery.Where(c => c.Name.Contains(query));
+            }
+        
+
+            var customerDtos = customerQuery.ToList().Select(Mapper.Map<Customer, CustomerDto>);
+
+
+
+            return Ok(customerDtos);    //reference to method Mapper.Map<Customer,CustomerDto>
         }
 
         //GET /api/customers/1

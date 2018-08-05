@@ -63,6 +63,9 @@ namespace Giangbb.Controllers.API
 
             foreach (var movie in movies)
             {
+                if (movie.NumberAvailable <= 0) {
+                    return BadRequest(String.Format("Movie {0} is not available", movie.Name));
+                }
                 movie.NumberAvailable--;
                 var rental = new Rental
                 {

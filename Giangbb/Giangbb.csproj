@@ -214,6 +214,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Controllers\RentalController.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
@@ -446,10 +447,13 @@
     <Content Include="Content\material-dashboard\demo.css" />
     <Content Include="Content\material-dashboard\material-dashboard.css" />
     <Content Include="Content\views\common.css" />
+    <Content Include="Content\views\typeahead.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bloodhound.js" />
+    <Content Include="Scripts\bloodhound.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -545,6 +549,10 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\typeahead.bundle.js" />
+    <Content Include="Scripts\typeahead.bundle.min.js" />
+    <Content Include="Scripts\typeahead.jquery.js" />
+    <Content Include="Scripts\typeahead.jquery.min.js" />
     <Content Include="Scripts\views\account\externalLoginConfirmation.js" />
     <Content Include="Scripts\views\account\login.js" />
     <Content Include="Scripts\views\account\register.js" />
@@ -553,6 +561,7 @@
     <Content Include="Scripts\views\home\index.js" />
     <Content Include="Scripts\views\movie\index.js" />
     <Content Include="Scripts\views\movie\new.js" />
+    <Content Include="Scripts\views\rental\new.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -603,6 +612,7 @@
     <Content Include="Views\Account\RegisterAcc.cshtml" />
     <Content Include="Views\Account\LoginAcc.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmationAcc.cshtml" />
+    <Content Include="Views\Rental\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
